@@ -1,0 +1,1 @@
+This project contains an automation framework for testing a CRM application. The framework is built using Robot Framework and SeleniumLibrary. It includes automated test cases for various functionalities within a CRM system provided by Bryan Lamb on https://www.robotframeworktutorial.com/, such as logging in, viewing the customer list, adding new customers, and signing out.
