@@ -12,7 +12,7 @@ Verify Landing Page Is Loaded
     [Tags]             PageLoad    Verification
     Wait Until Page Contains    ${LANDING_PAGE_HEADLINE}
 
-Sign In
+Click on Sign In And Verfiy Login Page is Loaded
     [Documentation]    This keyword performs the action of clicking on the sign-in link and then waits until the login page is displayed. It navigates the user from the landing page to the login page.
     [Tags]             Navigation    SignIn
     Click Link    ${SIGN_IN_LINK}

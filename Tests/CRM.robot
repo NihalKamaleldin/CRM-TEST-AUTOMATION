@@ -10,7 +10,7 @@ Test Teardown       End test
 #robot -d results tests/CRM.robot
 
 *** Variables ***
-${BROWSER}           chrome
+${BROWSER}           edge
 ${START_URL}         https://automationplayground.com/crm/
 ${USER_EMAIL}        jane@gmail.com
 ${USER_PASSWORD}     coolstrongpassword
@@ -25,11 +25,25 @@ ${GENDER}           female
 Should be able to add new customer
     [Documentation]    This test case verifies that a user can successfully add a new customer. The test includes logging in, navigating to the customer list, adding a new customer, and verifying the addition.
     [Tags]             Smoke    AddCustomer    Regression
-    CRMApp.Login                ${USER_EMAIL}       ${USER_PASSWORD}
+    CRMApp.Login with valid credentials               ${USER_EMAIL}       ${USER_PASSWORD}
     CRMApp.View customers List
     CRMApp.Add new customer
     CRMApp.Fill customer details        ${CUSTOMER_EMAIL}   ${CUSTOMER_NAME}[0]    ${CUSTOMER_NAME}[1]   ${CITY}     ${STATE_REGION}     ${GENDER}
-    CRMApp.Sign out
+    CRMApp.Sign Out And Verify User is Signed out
 
+Should be able to login
+    [Tags]             Smoke    Login    Regression
+    CRMApp.Login with valid credentials     ${USER_EMAIL}       ${USER_PASSWORD}
+
+Should be able to sign out
+    [Tags]             Smoke    Sign Out    Regression
+    CRMApp.Login with valid credentials     ${USER_EMAIL}       ${USER_PASSWORD}
+    CRMApp.Sign Out And Verify User is Signed out
+
+Should be able to view customer list
+    [Tags]             Smoke    View Customer List    Regression
+    CRMApp.Login with valid credentials     ${USER_EMAIL}       ${USER_PASSWORD}
+    CRMApp.View customers List
+    CRMApp.Sign Out And Verify User is Signed out
 
 

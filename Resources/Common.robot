@@ -11,8 +11,8 @@ Begin Test
     Open Browser       ${start_url}    ${browser}
     Maximize Browser Window
     # Initialize Selenium settings
-    Set Selenium Speed    0.2s
-    Set Selenium Timeout  10s
+    Set Selenium Speed    0.0001s
+    Set Selenium Timeout  5s
 
 End Test
     [Documentation]    This keyword performs the teardown actions for a test case, including closing the browser and pausing briefly to ensure that all actions are properly completed. It is typically used at the end of a test case to clean up the test environment.

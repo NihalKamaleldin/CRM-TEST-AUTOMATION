@@ -8,12 +8,12 @@ Resource          ../Resources/PO/LandingPage.robot
 Resource          ../Resources/PO/Results.robot
 
 *** Keywords ***
-Login
+Login with valid credentials
     [Documentation]    Logs into the application. This involves verifying that the landing page is loaded, clicking the sign-in link, and filling in the login details.
     [Arguments]        ${email}    ${password}
     [Tags]             Login    Authentication
     LandingPage.Verify Landing Page Is Loaded
-    LandingPage.Sign In
+    LandingPage.Click on Sign In And Verfiy Login Page is Loaded
     LoginPage.Fill Login Details    ${email}    ${password}
 
 View Customers List
@@ -32,8 +32,11 @@ Fill Customer Details
     [Tags]             CustomerManagement    FormSubmission
     CustomerAddition.Fill cusotmer details    ${customer_email}    ${customer_fname}    ${customer_lname}    ${city}    ${state_region}    ${gender}
 
-Sign Out
+Sign Out And Verify User is Signed out
     [Documentation]    Signs out of the application and verifies that the user has been signed out.
     [Tags]             Logout    Authentication
-    Click Link    Sign Out
+    Click on Sign out
     Results.User Signed Out
+
+Click on Sign out
+     Click Link    Sign Out
